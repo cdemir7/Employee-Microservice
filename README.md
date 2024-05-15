@@ -16,6 +16,7 @@
 * MySQL
 * Lombok
 * Swagger
+* Validation
 
 ---
 
