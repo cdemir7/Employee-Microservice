@@ -7,6 +7,7 @@ import com.example.employeemicroservice.business.dto.responses.create.CreateEmpl
 import com.example.employeemicroservice.business.dto.responses.get.GetAllEmployeesResponse;
 import com.example.employeemicroservice.business.dto.responses.get.GetEmployeeResponse;
 import com.example.employeemicroservice.business.dto.responses.update.UpdateEmployeeResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -31,12 +32,12 @@ public class EmployeeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CreateEmployeeResponse add(@RequestBody CreateEmployeeRequest createEmployeeRequest){
+    public CreateEmployeeResponse add(@Valid @RequestBody CreateEmployeeRequest createEmployeeRequest){
         return employeeService.add(createEmployeeRequest);
     }
 
     @PutMapping("/{id}")
-    public UpdateEmployeeResponse update(@PathVariable int id, @RequestBody UpdateEmployeeRequest updateEmployeeRequest){
+    public UpdateEmployeeResponse update(@PathVariable int id, @Valid @RequestBody UpdateEmployeeRequest updateEmployeeRequest){
         return employeeService.update(id, updateEmployeeRequest);
     }
 
